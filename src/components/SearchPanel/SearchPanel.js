@@ -13,7 +13,9 @@ class SearchPanel extends Component {
                 className="search-input"
                 type="text"
                 placeholder={this.state.label}
-                onChange={this.onToggleSearch}
+                onChange={()=>{
+                    console.log(this.props);
+                }}
             />
         );
     }
