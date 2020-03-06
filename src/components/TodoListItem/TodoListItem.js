@@ -1,47 +1,16 @@
-import React, {Component} from 'react';
-import './todo-list-item.css'
+import React from 'react';
 
+const TodoListItem = ({ label, important = false }) => {
 
-class TodoListItem extends Component {
+    const style = {
+        color: important ? 'tomato' : 'black'
+    };
 
-    render() {
-        const { label,
-                onDeleted,
-                onToggleDone,
-                onToggleImportant,
-                important,
-                done
-                } = this.props;
-
-        let className = 'todo-list-item d-flex';
-        if (done) {
-            className += ' done';
-        }
-        if (important) {
-            className += ' important';
-        }
-
-
-        return (
-            <span className={className}>
-                <span
-                    className="todo-list-item-label mr-auto"
-                    onClick={onToggleDone} >
-                        { label }
-                </span>
-                <button type="button"
-                    className="btn btn-outline-success btn-sm"
-                    onClick={onToggleImportant} >
-                        <i className="fa fa-exclamation"/>
-                </button>
-                <button type="button"
-                    className="btn btn-outline-danger btn-sm"
-                    onClick={onDeleted}>
-                        <i className="fa fa-trash-alt"/>
-                </button>
-            </span>
-        );
-    }
-}
+    return (
+        <span style={style}>
+            { label }
+        </span>
+    );
+};
 
 export default TodoListItem;
